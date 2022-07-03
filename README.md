@@ -1,37 +1,19 @@
 # 料带标注
 
 #### 介绍
-制作料带标签，通过软件标注料带中心位置和与水平线夹角，之后用于网络训练
+制作料带标签，使用软件标注料带中心位置和与水平线夹角，之后用于网络训练。
 
 #### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+QT+PYTHON 3.7
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.dist文件夹下LabelIMG.exe文件打开即可使用，需要注意图片训练集所在目录不能出现中文字符，否则图片可能打不开。
 
-#### 参与贡献
+2.根据提示，分别点击料包四个顶点，接着点击同一个长边上的两个点（尽可能间距放宽）一个料包及标注完成。整个页面上所有料包均标注完成后点击保存自动切换到下一张图片。
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+3.一张图片标注完成后会生成与图片同名的xml文件，文件中记录了图片文件的相关信息，以及每一个料带的左上坐标、右下坐标，及料带与水平方向的夹角。
 
+4.夹角规定：当前料带可以以最小角度将长边旋转到水平方向时，该角度即为料带的夹角，规定料带需要顺时针旋转长边才能到达水平方向时，夹角为负，反之为正。
 
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+​	
