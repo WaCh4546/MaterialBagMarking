@@ -261,7 +261,7 @@ class LabelIMG(QMainWindow,Ui_MainWindow):
             img1=self.IMG_TEMP[-1].copy()
             x=img1.shape[1]*event.x()/self.label.width()
             y=img1.shape[0]*event.y()/self.label.height()
-            img_=circle(img1,center =(int(x),int(y)),radius = 10,color = (0,0,255),thickness = 3)
+            img_=circle(img1,center =(int(x),int(y)),radius = 6,color = (0,0,255),thickness = 2)
             self.IMG_TEMP.append(img_)
             frame = cvtColor(img_, COLOR_RGB2BGR)
             img = QImage(frame.data, frame.shape[1], frame.shape[0],frame.shape[1]*3, QImage.Format_RGB888)#第四个参数设置通道数对齐,不然图片可能会变形
@@ -301,7 +301,7 @@ class LabelIMG(QMainWindow,Ui_MainWindow):
         line(img,(XY[0][0],XY[0][1]),(XY[1][0],XY[1][1]),color=(0,255,0),thickness=2)
         line(img,(XY[0][0],XY[0][1]),(XY[0][0]+step,XY[0][1]),color=(0,255,0),thickness=2)
         img = putText(img, str(round(data[2],1)), (XY[0][0]+t*30, XY[0][1]+30), 0, 1.2, (0, 255, 0), 2)
-
+        img=circle(img,center =(int((data[0][0]+data[1][0])/2),int((data[0][1]+data[1][1])/2)),radius = 3,color = (0,255,255),thickness = 5)
     def printmessage(self,message,time=True):
         textCursor = self.Message.textCursor()
         textCursor.movePosition(textCursor.End)

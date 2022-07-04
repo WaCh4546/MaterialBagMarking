@@ -10,28 +10,29 @@
 
 
 from PyQt5.QtCore import QRect,QSize,QMetaObject,QCoreApplication
-from PyQt5.QtWidgets import QWidget,QGroupBox,QLabel,QHBoxLayout,QPushButton,QTextBrowser,QMenuBar,QMenu,QStatusBar,QAction
+from PyQt5.QtWidgets import QWidget,QGroupBox,QLabel,QHBoxLayout,QPushButton,QTextBrowser,QMenuBar,QMenu,QStatusBar,QAction,QApplication
 from PyQt5.QtGui import QIcon
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName('MainWindow')
         MainWindow.setWindowIcon(QIcon("robot.png"))
-        MainWindow.resize(690, 675)
+        desktop = QApplication.desktop()
+        MainWindow.resize(desktop.width(), desktop.height()-60)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QRect(10, 230, 671, 391))
+        self.groupBox.setGeometry(QRect(10, int(desktop.height()/10)+10, desktop.width()-20, int(desktop.height()*0.77)))
         self.groupBox.setObjectName("groupBox")
         self.label = QLabel(self.groupBox)
-        self.label.setGeometry(QRect(10, 20, 640, 360))
+        self.label.setGeometry(QRect(10, 20, desktop.width()-40, int(desktop.height()*0.77-30)))
         self.label.setMouseTracking(True)
         self.label.setText("")
         self.label.setObjectName("label")
         self.groupBox_2 = QGroupBox(self.centralwidget)
-        self.groupBox_2.setGeometry(QRect(10, 130, 671, 91))
+        self.groupBox_2.setGeometry(QRect(10, 10, int(desktop.width()/2-20), int(desktop.height()/10)))
         self.groupBox_2.setObjectName("groupBox_2")
         self.horizontalLayoutWidget = QWidget(self.groupBox_2)
-        self.horizontalLayoutWidget.setGeometry(QRect(10, 20, 651, 61))
+        self.horizontalLayoutWidget.setGeometry(QRect(10, 15, int(desktop.width()/2-40), int(desktop.height()/10-20)))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -53,10 +54,10 @@ class Ui_MainWindow(object):
         self.reset.setObjectName("reset")
         self.horizontalLayout.addWidget(self.reset)
         self.groupBox_3 = QGroupBox(self.centralwidget)
-        self.groupBox_3.setGeometry(QRect(10, 10, 671, 121))
+        self.groupBox_3.setGeometry(QRect(int(desktop.width()/2),10 , int(desktop.width()/2-10), int(desktop.height()/10)))
         self.groupBox_3.setObjectName("groupBox_3")
         self.Message = QTextBrowser(self.groupBox_3)
-        self.Message.setGeometry(QRect(10, 20, 651, 81))
+        self.Message.setGeometry(QRect( 10,20,  int(desktop.width()/2-30), int(desktop.height()/12-20)))
         self.Message.setObjectName("Message")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
